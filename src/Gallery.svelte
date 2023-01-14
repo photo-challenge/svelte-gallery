@@ -33,36 +33,36 @@
 </script>
 
 <style>
-  .masonry {
+  .gallery-masonry {
     max-width: 100%;
   }
 
-  .container {
+  .gallery-container {
     display: flex;
     flex-wrap: wrap;
   }
 
-  .image {
+  .gallery-image {
     position: relative;
     height: 100%;
   }
 
-  .image > :global(*) {
+  .gallery-image > :global(*) {
     width: 100%;
     height: 100%;
   }
 
-  .hidden {
+  .gallery-hidden {
     visibility: hidden;
   }
 
 </style>
 
-<div class="masonry" bind:clientWidth={width}>
-  <div class="container" style="width: {width}px" class:hidden={!width}>
+<div class="gallery-masonry" bind:clientWidth={width}>
+  <div class="gallery-container" style="width: {width}px" class:gallery-hidden={!width}>
     {#each scaledImages as { index, ratio, scaledHeight, scaledWidth, isLastInRow, isLastRow, scaledWidthPc, ...image }}
       <div
-        class="image"
+        class="gallery-image"
         style={imgStyle({ scaledHeight, scaledWidth, isLastInRow, isLastRow })}
       >
         <slot {index} {image}>
